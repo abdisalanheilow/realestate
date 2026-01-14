@@ -37,3 +37,8 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])
     ->name('admin.login');
 
+Route::get('/run-migration', function () {
+    Artisan::call('migrate:fresh --seed');
+    return "Migration executed successfully";
+});
+
