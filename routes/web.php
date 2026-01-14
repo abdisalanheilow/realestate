@@ -50,3 +50,19 @@ Route::get('/clear-cache', function () {
     return 'Cache & View Cleared! <br> <a href="/admin/login">Go to Login</a>';
 });
 
+Route::get('/debug-files', function () {
+    $path = resource_path('views');
+    $files = File::allFiles($path);
+    $directories = File::directories($path);
+
+    echo "<h3>Directories in resources/views:</h3>";
+    foreach ($directories as $dir) {
+        echo $dir . "<br>";
+    }
+
+    echo "<h3>Files in resources/views (recursive):</h3>";
+    foreach ($files as $file) {
+        echo $file->getRelativePathname() . "<br>";
+    }
+});
+
