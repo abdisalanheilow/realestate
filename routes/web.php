@@ -42,3 +42,11 @@ Route::get('/run-migration', function () {
     return "Migration executed successfully";
 });
 
+Route::get('/clear-cache', function () {
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    return 'Cache & View Cleared! <br> <a href="/admin/login">Go to Login</a>';
+});
+
