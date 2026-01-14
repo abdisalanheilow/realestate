@@ -28,7 +28,7 @@ class AdminController extends Controller
     }
     public function AdminLogin()
     {
-        return view('admin.admin_login'); // Fixed case sensitivity
+        return view('admin.login'); // Fixed case sensitivity
     }
 
 }
