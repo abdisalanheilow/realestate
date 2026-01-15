@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\Backend\PropertyTypeController;
+use App\Http\Controllers\Backend\AmenityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +29,34 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         ->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])
         ->name('admin.logout');
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])
+        ->name('admin.profile');
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])
+        ->name('admin.profile.store');
+    Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])
+        ->name('admin.change.password');
+    Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])
+        ->name('admin.update.password');
+
+    // Property Type Routes
+    Route::controller(PropertyTypeController::class)->group(function () {
+        Route::get('/all/type', 'AllType')->name('all.type');
+        Route::get('/add/type', 'AddType')->name('add.type');
+        Route::post('/store/type', 'StoreType')->name('store.type');
+        Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
+        Route::post('/update/type', 'UpdateType')->name('update.type');
+        Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
+    });
+
+    // Amenity Routes
+    Route::controller(AmenityController::class)->group(function () {
+        Route::get('/all/amenity', 'AllAmenity')->name('all.amenity');
+        Route::get('/add/amenity', 'AddAmenity')->name('add.amenity');
+        Route::post('/store/amenity', 'StoreAmenity')->name('store.amenity');
+        Route::get('/edit/amenity/{id}', 'EditAmenity')->name('edit.amenity');
+        Route::post('/update/amenity', 'UpdateAmenity')->name('update.amenity');
+        Route::get('/delete/amenity/{id}', 'DeleteAmenity')->name('delete.amenity');
+    });
 }); // End Group Admin Middleware
 
 Route::middleware(['auth', 'role:agent'])->group(function () {
@@ -36,33 +66,4 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])
     ->name('admin.login');
-
-Route::get('/run-migration', function () {
-    Artisan::call('migrate:fresh --seed');
-    return "Migration executed successfully";
-});
-
-Route::get('/clear-cache', function () {
-    Artisan::call('view:clear');
-    Artisan::call('route:clear');
-    Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-    return 'Cache & View Cleared! <br> <a href="/admin/login">Go to Login</a>';
-});
-
-Route::get('/debug-files', function () {
-    $path = resource_path('views');
-    $files = File::allFiles($path);
-    $directories = File::directories($path);
-
-    echo "<h3>Directories in resources/views:</h3>";
-    foreach ($directories as $dir) {
-        echo $dir . "<br>";
-    }
-
-    echo "<h3>Files in resources/views (recursive):</h3>";
-    foreach ($files as $file) {
-        echo $file->getRelativePathname() . "<br>";
-    }
-});
 

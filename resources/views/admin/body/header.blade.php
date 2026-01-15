@@ -70,8 +70,8 @@
                     <div class="p-1">
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div class="me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
@@ -83,8 +83,8 @@
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div class="me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
@@ -96,8 +96,8 @@
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div class="me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
@@ -109,8 +109,8 @@
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div class="me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
@@ -122,8 +122,8 @@
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div class="me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
@@ -176,8 +176,8 @@
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                             <div
                                 class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
-                                <img class="wd-30 ht-30 rounded-circle" src="{{ url('backend/assets/images/others/placeholder.jpg') }}"
-                                    alt="userr">
+                                <img class="wd-30 ht-30 rounded-circle"
+                                    src="{{ url('backend/assets/images/others/placeholder.jpg') }}" alt="userr">
                             </div>
                             <div class="flex-grow-1 me-2">
                                 <p>New customer registered</p>
@@ -214,24 +214,24 @@
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="wd-30 ht-30 rounded-circle"
-                        src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/' . $profileData->photo) : url('backend/assets/images/others/placeholder.jpg') }}"
+                        src="{{ (!empty(Auth::user()->photo)) ? url('upload/admin_images/' . Auth::user()->photo) : url('backend/assets/images/others/placeholder.jpg') }}"
                         alt="profile">
                 </a>
                 <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                     <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                         <div class="mb-3">
                             <img class="wd-80 ht-80 rounded-circle"
-                                src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/' . $profileData->photo) : url('backend/assets/images/others/placeholder.jpg') }}"
+                                src="{{ (!empty(Auth::user()->photo)) ? url('upload/admin_images/' . Auth::user()->photo) : url('backend/assets/images/others/placeholder.jpg') }}"
                                 alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">{{ $profileData->name }}</p>
-                            <p class="tx-12 text-muted">{{ $profileData->email }}</p>
+                            <p class="tx-16 fw-bolder">{{ Auth::user()->name }}</p>
+                            <p class="tx-12 text-muted">{{ Auth::user()->email }}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
                         <li class="dropdown-item py-2">
-                            <a href="pages/general/profile.html" class="text-body ms-0">
+                            <a href="{{ route('admin.profile') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>Profile</span>
                             </a>
@@ -246,6 +246,12 @@
                             <a href="javascript:;" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="repeat"></i>
                                 <span>Switch User</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item py-2">
+                            <a href="{{ route('admin.change.password') }}" class="text-body ms-0">
+                                <i class="me-2 icon-md" data-feather="edit"></i>
+                                <span>Change Password</span>
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
