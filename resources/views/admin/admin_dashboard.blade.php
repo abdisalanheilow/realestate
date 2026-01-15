@@ -33,7 +33,7 @@
     <!-- endinject -->
 
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}">
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
@@ -75,7 +75,7 @@
     <!-- endinject -->
 
     <!-- Custom js for this page -->
-    <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/dashboard-light.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
