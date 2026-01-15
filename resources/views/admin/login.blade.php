@@ -26,22 +26,22 @@
     <!-- End fonts -->
 
     <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/fonts/feather-font/css/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <!-- endinject -->
 
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('assets/css/demo2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo2/style.css') }}">
     <!-- End layout styles -->
 
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
 </head>
 
 <body>
@@ -63,17 +63,18 @@
                                         <a href="#"
                                             class="noble-ui-logo logo-light d-block mb-2">Real<span>Estate</span></a>
                                         <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                            <form class="forms-sample" method="POST" action="{{ route('login') }}">
-                                                @csrf
+                                        <form class="forms-sample" method="POST" action="{{ route('login') }}">
+                                            @csrf
                                             <div class="mb-3">
                                                 <label for="login" class="form-label">Email/Name/Phone</label>
-                                                <input type="text" name="login" class="form-control" id="login" 
+                                                <input type="text" name="login" class="form-control" id="login"
                                                     placeholder="Email/Name/Phone">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userPassword" name="password"
-                                                    autocomplete="current-password" placeholder="Password">
+                                                <input type="password" class="form-control" id="userPassword"
+                                                    name="password" autocomplete="current-password"
+                                                    placeholder="Password">
                                             </div>
                                             <div class="form-check mb-3">
                                                 <input type="checkbox" class="form-check-input" id="authCheck">
@@ -82,13 +83,12 @@
                                                 </label>
                                             </div>
                                             <div>
-                                                <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
+                                                <button type="submit"
+                                                    class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
                                                     Login
-                                                </button
-
-                                            </div>
-                                            <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign
-                                                up</a>
+                                                </button </div>
+                                                <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign
+                                                    up</a>
                                         </form>
                                     </div>
                                 </div>
@@ -102,15 +102,15 @@
     </div>
 
     <!-- core:js -->
-    <script src="{{ asset('assets/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
-    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('assets/js/template.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/template.js') }}"></script>
     <!-- endinject -->
 
     <!-- Custom js for this page -->
