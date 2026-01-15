@@ -41,17 +41,17 @@
 <body>
     <div class="main-wrapper">
 
-        @include('Admin.body.sidebar')
+        @include('admin.body.sidebar')
 
         <div class="page-wrapper">
 
             <!-- partial:partials/_navbar.html -->
-            @include('Admin.body.header')
+            @include('admin.body.header')
             <!-- partial -->
             @yield('admin')
-            
+
             <!-- partial:partials/_footer.html -->
-            @include('Admin.body.footer')
+            @include('admin.body.footer')
             <!-- partial -->
 
         </div>
